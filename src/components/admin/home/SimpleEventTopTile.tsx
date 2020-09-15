@@ -18,7 +18,7 @@ function SimpleEventTopTile({ simpleEvent, onCreateReport }: Props) {
       </Box>
       <Box flexGrow={1} flexDirection="column">
         <Heading fontSize="lg">{simpleEvent.location}</Heading>
-        <Flex>
+        <Flex flexDirection={{ base: "column", md: "row" }}>
           <Flex alignItems="center" mr={3}>
             <MdPeople size={15} />
             <Text ml={2} mb="2px">

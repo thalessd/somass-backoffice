@@ -47,15 +47,21 @@ function AdminHomeScreen() {
 
   const toast = useToast();
 
-  React.useEffect(() => {
-    loadList(toast, setSimpleEvents, toggleLoad).then();
-  }, []);
+  const listAll = () => loadList(toast, setSimpleEvents, toggleLoad);
 
   const onRequestReport = (simpleEvent: SimpleEvent) =>
     downloadReport(simpleEvent, toast, toggleLoad);
 
+  React.useEffect(() => {
+    listAll().then();
+  }, []);
+
   return (
-    <AdminContentScreen title="Eventos da Semana" hideBackArrow>
+    <AdminContentScreen
+      title="Eventos da Semana"
+      onRefresh={listAll}
+      hideBackArrow
+    >
       <HomeEvents
         simpleEvents={simpleEvents}
         load={load}
