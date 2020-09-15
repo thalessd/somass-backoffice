@@ -3,6 +3,7 @@ import SimpleVacancy from "../../../models/simple-vacancy";
 import { Box, Divider, Flex, Text } from "@chakra-ui/core";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import ManageDate from "../../../helpers/manage-date";
 
 type Props = {
   simpleVacancy: SimpleVacancy;
@@ -17,7 +18,9 @@ function ClientTile({ simpleVacancy }: Props) {
         </Text>
         <Text fontSize="sm" fontWeight="bold">
           {formatDistanceToNow(
-            new Date(simpleVacancy.createdAt ?? new Date()),
+            ManageDate.globalToLocal(
+              new Date(simpleVacancy.createdAt ?? new Date())
+            ),
             {
               locale: ptBR,
             }
