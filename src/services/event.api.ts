@@ -55,4 +55,21 @@ export default class EventApi {
       ApiUtil.axiosDefaultConfig(token)
     );
   }
+
+  static async downloadReport(event: Event): Promise<void> {
+    const token = await UserApi.getLoginToken();
+
+    const response = await axios.get<BlobPart>(
+      `${API_URL}/event/report/${event.id ?? ""}`,
+      ApiUtil.axiosDefaultConfig(token, {
+        responseType: "blob",
+      })
+    );
+
+    const blob = new Blob([response.data], {
+      type: "application/pdf",
+    });
+
+    window.open(window.URL.createObjectURL(blob));
+  }
 }

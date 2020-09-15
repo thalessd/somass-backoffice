@@ -9,6 +9,7 @@ import { ManageList } from "../helpers/manage-list";
 import { DayOfWeek } from "../models/day-of-week.enum";
 import FormDrawer from "../components/shared/FormDrawer";
 import EventForm from "../components/admin/event/EventForm";
+import ShowToast from "../helpers/show-toast";
 
 const pageName = {
   singular: "Evento",
@@ -183,6 +184,22 @@ async function deleteItem(
   }
 }
 
+async function downloadReport(
+  item: Event,
+  toast: any,
+  toggleLoad: (load: boolean) => void
+) {
+  toggleLoad(true);
+
+  try {
+    await EventApi.downloadReport(item);
+  } catch (e) {
+    new ShowToast(toast).error("Não foi possível gerar o relatório");
+  } finally {
+    toggleLoad(false);
+  }
+}
+
 function AdminEventScreen() {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const confirmAction = () => buttonRef.current && buttonRef.current.click();
@@ -235,6 +252,10 @@ function AdminEventScreen() {
     toggleDrawer(true);
   };
 
+  const onRequestReport = (item: Event) => {
+    return downloadReport(item, toast, toggleLoad);
+  };
+
   return (
     <AdminContentScreen title={pageName.plural} onAdd={onCreate}>
       <EventDataTable
@@ -242,6 +263,7 @@ function AdminEventScreen() {
         data={state.list}
         onDelete={onDelete}
         onUpdate={onUpdate}
+        onCreateReport={onRequestReport}
       />
       <FormDrawer
         title={state.titles.form}
