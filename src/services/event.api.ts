@@ -3,6 +3,7 @@ import { API_URL } from "../constants/default";
 import Event from "../models/event";
 import UserApi from "./user.api";
 import ApiUtil from "../helpers/api-util";
+import SimpleEvent from "../models/simple-event";
 
 export default class EventApi {
   static async create(event: Event): Promise<Event> {
@@ -56,7 +57,7 @@ export default class EventApi {
     );
   }
 
-  static async downloadReport(event: Event): Promise<void> {
+  static async downloadReport(event: Event | SimpleEvent): Promise<void> {
     const token = await UserApi.getLoginToken();
 
     const response = await axios.get<BlobPart>(
@@ -71,5 +72,16 @@ export default class EventApi {
     });
 
     window.open(window.URL.createObjectURL(blob));
+  }
+
+  static async findAllSimpleEvents(): Promise<SimpleEvent[]> {
+    const token = await UserApi.getLoginToken();
+
+    const response = await axios.get<SimpleEvent[]>(
+      `${API_URL}/event/simple`,
+      ApiUtil.axiosDefaultConfig(token)
+    );
+
+    return response.data;
   }
 }

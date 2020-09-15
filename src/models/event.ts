@@ -3,23 +3,14 @@ import { DayOfWeek } from "./day-of-week.enum";
 
 export default class Event {
   id?: string;
-
   location: string;
-
   startTime: string;
-
   dayOfWeek: DayOfWeek;
-
   vacancy: number;
-
   available: boolean;
-
   createdBy?: User;
-
   updatedBy?: User;
-
   createdAt?: Date;
-
   updatedAt?: Date;
 
   constructor(

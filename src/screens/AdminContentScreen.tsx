@@ -51,7 +51,7 @@ function AdminContentScreen({ title, hideBackArrow, onAdd, children }: Props) {
   }, []);
 
   const menuItems: MenuItem[] = [
-    { icon: MdHome, label: "Home", to: "/home" },
+    { icon: MdHome, label: "Página Inicial", to: "/home" },
     { icon: MdAccountBox, label: "Usuários", to: "/users" },
     { icon: MdEvent, label: "Eventos", to: "/events" },
   ];
