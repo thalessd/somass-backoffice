@@ -1,0 +1,16 @@
+html, body, #__next{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.MuiToolbar-root {
+  padding: 0 !important;
+}
+
+.w100 {
+  width: 100%;
+}
