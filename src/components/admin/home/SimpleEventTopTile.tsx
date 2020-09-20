@@ -1,7 +1,7 @@
 import React from "react";
 import SimpleEvent from "../../../models/simple-event";
 import { Box, Flex, Heading, IconButton, Text } from "@chakra-ui/core";
-import { MdEvent, MdEventBusy, MdPeople } from "react-icons/md";
+import {MdEvent, MdEventBusy, MdPeople, MdPictureAsPdf} from "react-icons/md";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -36,7 +36,7 @@ function SimpleEventTopTile({ simpleEvent, onCreateReport }: Props) {
         </Flex>
       </Box>
       <IconButton
-        icon={MdEvent}
+        icon={MdPictureAsPdf}
         borderRadius="100%"
         aria-label="Download do Relatório"
         onClick={onCreateReport}
