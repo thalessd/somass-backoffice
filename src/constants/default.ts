@@ -1,4 +1,4 @@
-export const API_URL = "http://localhost:3000";
+export const API_URL = "http://devdes.io:3001";
 export const TOKEN_KEY = "token";
 
 export const DAYS_OF_WEEK = [
