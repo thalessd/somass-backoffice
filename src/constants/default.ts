@@ -1,4 +1,4 @@
-export const API_URL = "http://devdes.io:3001";
+export const API_URL = "https://simoes.somass.devdes.io";
 export const TOKEN_KEY = "token";
 
 export const DAYS_OF_WEEK = [
