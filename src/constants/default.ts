@@ -8,4 +8,5 @@ export const DAYS_OF_WEEK = [
   "Quarta-Feira",
   "Quinta-Feira",
   "Sexta-Feira",
+  "Sábado",
 ];
