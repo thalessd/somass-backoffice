@@ -1,13 +1,12 @@
 {
   "name": "somass-backoffice",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4004",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 4004"
+    "start": "next start"
   },
-  "proxy": "http://localhost:3000",
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
