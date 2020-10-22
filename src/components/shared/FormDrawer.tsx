@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/core";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import LazyLoad from "./LazyLoad";
+import {Container} from "next/app";
 
 type Props = {
   isOpen: boolean;
@@ -71,7 +72,7 @@ function FormDrawer({
       closeOnOverlayClick={false}
     >
       <DrawerOverlay zIndex={1000} />
-      <DrawerContent zIndex={1200}>
+      <DrawerContent zIndex={1200} >
         <DrawerHeader>
           <Flex alignItems="center">
             <IconButton
@@ -94,7 +95,7 @@ function FormDrawer({
         <DrawerBody as={Flex} height={0}>
           {content}
         </DrawerBody>
-        <DrawerFooter>
+        <DrawerFooter height={{ base: 130, lg: 70 }}>
           <Button
             mr={3}
             pl={6}
