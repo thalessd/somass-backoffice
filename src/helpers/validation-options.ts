@@ -8,7 +8,7 @@ export default class ValidationOptions {
   static emailRequiredOptions(): any {
     return {
       pattern: {
-        value: /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i,
+        value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/i,
         message: 'O Campo Precisa ser um Email',
       },
       required: { value: true, message: this.requiredMessage },
